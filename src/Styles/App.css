@@ -229,12 +229,14 @@ main {
 }
 
 .toggle {
+  width: 400px;
   margin: 1rem auto;
   margin-top: 2rem;
   padding: auto;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .show-info {

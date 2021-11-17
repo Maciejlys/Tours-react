@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Styles/App.css";
 import axios from "axios";
-import dataJson from "./data.json";
+import dataJson from "./data/data.json";
 import { Loading } from "./Components/Loading";
 import { Error } from "./Components/Error";
 import { Tours, Tour } from "./Components/Tours";
@@ -13,6 +13,11 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
+  const removeTour = (id: string): void => {
+    const newData: Tour[] = data.filter((tour) => tour.id !== id);
+    setData(newData);
+  };
+
   // At the beginning it was fetching the data from API but as I was testing alot
   // API wasn't responding very well thats why I moved it to local json file
   // and in case of an error I just load the data from the json file.
@@ -23,7 +28,7 @@ function App() {
       const tours = await response.data;
       setData(tours);
     } catch (error) {
-      console.log("error");
+      console.log("error, loading data from local storage instead...");
       const stringify = await JSON.stringify(dataJson);
       const parsed = await JSON.parse(stringify);
       setData(parsed);
@@ -51,7 +56,7 @@ function App() {
   }
   return (
     <main>
-      <Tours tours={data} />
+      <Tours tours={data} remove={removeTour} />
     </main>
   );
 }

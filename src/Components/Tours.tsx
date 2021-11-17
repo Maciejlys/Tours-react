@@ -3,6 +3,7 @@ import { Tour } from "./Tour";
 
 interface ToursProp {
   tours: Tour[];
+  remove: (id: string) => void;
 }
 
 export interface Tour {
@@ -11,9 +12,10 @@ export interface Tour {
   info: string;
   image: string;
   price: number;
+  remove: (id: string) => void;
 }
 
-export const Tours: FC<ToursProp> = ({ tours }) => {
+export const Tours: FC<ToursProp> = ({ tours, remove }) => {
   return (
     <section>
       <div className="title">
@@ -22,7 +24,7 @@ export const Tours: FC<ToursProp> = ({ tours }) => {
       </div>
       <div>
         {tours.map((tour) => {
-          return <Tour key={tour.id} {...tour} />;
+          return <Tour key={tour.id} {...tour} remove={remove} />;
         })}
       </div>
     </section>

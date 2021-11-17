@@ -5,7 +5,14 @@ import {
 } from "react-icons/io";
 import { Tour as TourType } from "./Tours";
 
-export const Tour: FC<TourType> = ({ name, info, image, price }) => {
+export const Tour: FC<TourType> = ({
+  id,
+  name,
+  info,
+  image,
+  price,
+  remove,
+}) => {
   const [isShown, setIsShown] = useState(false);
   return (
     <article className="single-tour">
@@ -25,6 +32,13 @@ export const Tour: FC<TourType> = ({ name, info, image, price }) => {
             )}
           </button>
         </div>
+        <button
+          className="delete-btn"
+          onClick={() => {
+            remove(id);
+          }}>
+          Not interested
+        </button>
       </footer>
     </article>
   );
