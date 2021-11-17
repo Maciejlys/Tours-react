@@ -1,7 +1,6 @@
 # About the project
 
-This is my 2nd react + typescript project and deploy on gh-pages. \
- Everything went smoothly. \
+ Another small project using react and typescript \
  [Live demo](https://maciejlys.github.io/Tours-react/)
 
 This was created using styles from [john-smilga](https://github.com/john-smilga/react-projects/tree/master/02-tours/final).
