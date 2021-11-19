@@ -6,7 +6,7 @@ import { Loading } from "./Components/Loading";
 import { Error } from "./Components/Error";
 import { Tours, Tour } from "./Components/Tours";
 
-const url = "https://course-api.com/react-tours-projects";
+const url = "https://course-api.com/react-tours-project";
 
 function App() {
   const [data, setData] = useState<Tour[]>([]);
@@ -21,7 +21,7 @@ function App() {
   // At the beginning it was fetching the data from API but as I was testing alot
   // API wasn't responding very well thats why I moved it to local json file
   // and in case of an error I just load the data from the json file.
-  const getData: any = async (url: string) => {
+  const getData: any = async () => {
     try {
       setIsLoading(true);
       const response = await axios.get(url);
@@ -53,6 +53,18 @@ function App() {
   }
   {
     isLoading && <Loading />;
+  }
+  if (data.length === 0 && !isLoading) {
+    return (
+      <main>
+        <div className="title">
+          <h2>no tours left</h2>
+          <button className="btn" onClick={() => getData()}>
+            refresh
+          </button>
+        </div>
+      </main>
+    );
   }
   return (
     <main>
