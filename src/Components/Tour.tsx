@@ -3,7 +3,7 @@ import {
   IoIosArrowDropdownCircle,
   IoIosArrowDropupCircle,
 } from "react-icons/io";
-import { Tour as TourType } from "./Tours";
+import { SingleTour as TourType } from "./Tours";
 
 export const Tour: FC<TourType> = ({
   id,

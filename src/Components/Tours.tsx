@@ -2,11 +2,11 @@ import React, { FC } from "react";
 import { Tour } from "./Tour";
 
 interface ToursProp {
-  tours: Tour[];
+  tours: SingleTour[];
   remove: (id: string) => void;
 }
 
-export interface Tour {
+export interface SingleTour {
   id: string;
   name: string;
   info: string;

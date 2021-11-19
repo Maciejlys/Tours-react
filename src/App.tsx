@@ -4,17 +4,17 @@ import axios from "axios";
 import dataJson from "./data/data.json";
 import { Loading } from "./Components/Loading";
 import { Error } from "./Components/Error";
-import { Tours, Tour } from "./Components/Tours";
+import { Tours, SingleTour } from "./Components/Tours";
 
 const url = "https://course-api.com/react-tours-project";
 
 function App() {
-  const [data, setData] = useState<Tour[]>([]);
+  const [data, setData] = useState<SingleTour[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
   const removeTour = (id: string): void => {
-    const newData: Tour[] = data.filter((tour) => tour.id !== id);
+    const newData: SingleTour[] = data.filter((tour) => tour.id !== id);
     setData(newData);
   };
 
